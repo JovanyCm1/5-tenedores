@@ -1,33 +1,33 @@
 const accountStack = {
-    tab: "AccountTab",
-    account: "Account"
-}
+  tab: "AccountTab",
+  account: "Account",
+};
 
 const favoritesStack = {
-    tab: "FavoritesTab",
-    favorites: "Favorites"
-}
+  tab: "FavoritesTab",
+  favorites: "Favorites",
+};
 
 const rankingStack = {
-    tab: "RankingTab",
-    ranking: "Ranking"
-}
+  tab: "RankingTab",
+  ranking: "Ranking",
+};
 
 const restaurantStack = {
-    tab: "RestaurantTab",
-    restaurants: "Restaurants",
-    addRestaurant: "AddRestaurant"
-}
+  tab: "RestaurantTab",
+  restaurants: "Restaurants",
+  addRestaurant: "AddRestaurant",
+};
 
 const searchStack = {
-    tab: "SearchTab",
-    search: "Search"
-}
+  tab: "SearchTab",
+  search: "Search",
+};
 
 export const screen = {
-    account: accountStack,
-    favorites: favoritesStack,
-    ranking: rankingStack,
-    restaurant: restaurantStack,
-    search: searchStack
-}
+  restaurant: restaurantStack,
+  favorites: favoritesStack,
+  search: searchStack,
+  ranking: rankingStack,
+  account: accountStack,
+};
