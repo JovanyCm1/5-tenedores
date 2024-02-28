@@ -9,7 +9,7 @@ import { screen } from "../utils";
 
 const Tab = createBottomTabNavigator();
 
-export function AppNavegation() {
+export function AppNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
