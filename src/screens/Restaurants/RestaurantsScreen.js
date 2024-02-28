@@ -10,7 +10,7 @@ export function RestaurantsScreen(props) {
   const goToAddRestaurants = () => {
     navigation.navigate(screen.restaurant.addRestaurant);
 
-    navigation.navigate(screen.account.tab, { screen: account.account });
+    //  navigation.navigate(screen.account.tab, { screen: account.account });
   };
 
   return (
