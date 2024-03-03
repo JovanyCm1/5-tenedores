@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 export function UserLoggedtScreen() {
   return (
     <View>
-      <Text> UserLoggedtScreen </Text>
+      <Text> UserLoggedScreen </Text>
     </View>
   );
 }
