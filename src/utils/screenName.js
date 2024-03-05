@@ -2,6 +2,7 @@ const accountStack = {
   tab: "AccountTab",
   account: "Account",
   login: "Login",
+  register: "Register",
 };
 
 const favoritesStack = {

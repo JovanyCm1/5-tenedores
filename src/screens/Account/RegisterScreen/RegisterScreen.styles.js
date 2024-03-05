@@ -8,6 +8,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   content: {
-    marginHorizontal: 40,
+    marginHorizontal: 20,
   },
 });
