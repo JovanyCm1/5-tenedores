@@ -7,6 +7,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { initialValues, validationSchema } from "./RegisterForm.data";
 import { useNavigation } from "@react-navigation/native";
 import { screen } from "../../../utils";
+import Toast from "react-native-toast-message";
 
 export function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,8 +24,15 @@ export function RegisterForm() {
           formValue.email,
           formValue.password
         );
-        navigation.navigate(screen.account.login);
+        //navigation.navigate(screen.account.account);
+        navigation.navigate(screen.account.account);
       } catch (error) {
+        Toast.show({
+          type: "error",
+          position: "bottom",
+          text1: "Error al registarse, intentelo mas tarde...",
+        });
+
         console.log("!!!!Error!!!!");
       }
       // console.log("Formulario enviado 📢");
@@ -91,6 +99,7 @@ export function RegisterForm() {
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
         onPress={formik.handleSubmit}
+        loading={formik.isSubmitting}
       ></Button>
     </View>
   );

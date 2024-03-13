@@ -3,11 +3,12 @@ import { View, ScrollView } from "react-native";
 import { Text, Image } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { screen } from "../../../utils";
+import { LoginForm } from "../../../components/Auth";
 import { styles } from "./LoginScreen.styles";
 
 export function LoginScreen() {
   const navigation = useNavigation();
-  const goToregister = () => {
+  const goToRegister = () => {
     console.log("📢Ir al registro");
     navigation.navigate(screen.account.register);
   };
@@ -20,8 +21,14 @@ export function LoginScreen() {
       />
 
       <View style={styles.content}>
-        <Text>Estamos en el LoginScreen</Text>
-        <Text onPress={goToregister}>Registrarse</Text>
+        <LoginForm />
+
+        <Text style={styles.textRegister}>
+          ¿Aún no tienes una cuenta?{" "}
+          <Text style={styles.btnRegister} onPress={goToRegister}>
+            Registrarse
+          </Text>
+        </Text>
       </View>
     </ScrollView>
   );
