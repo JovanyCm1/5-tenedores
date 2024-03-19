@@ -2,10 +2,47 @@ import { View, Text } from "react-native";
 import { Input, Icon, Button } from "react-native-elements";
 import { styles } from "./LoginForm.styles";
 import React, { useState } from "react"; ///
+import { useFormik } from "formik";
+import { initialValues, validationSchema } from "./LoginForm.data";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import Toast from "react-native-toast-message";
+import { useNavigation } from "@react-navigation/native";
+import { screen } from "../../../utils";
 
 export function LoginForm() {
   const [showPassword, setShowPassword] = useState(false); ///
   const showHidenPassword = () => setShowPassword((prevState) => !prevState); ///
+
+  const navigation = useNavigation();
+
+  const formik = useFormik({
+    initialValues: initialValues(),
+    validationSchema: validationSchema(),
+    validateOnChange: false,
+    onSubmit: async (formValue) => {
+      try {
+        const auth = getAuth();
+        await signInWithEmailAndPassword(
+          auth,
+          formValue.email,
+          formValue.password
+        );
+        //navigation.navigate(screen.account.account);
+        navigation.navigate(screen.account.account);
+      } catch (error) {
+        Toast.show({
+          type: "error",
+          position: "bottom",
+          text1: "Usuario o contraseña incorrectos",
+        });
+
+        console.log("!!!!Error por favor corrige!!!!");
+      }
+      // console.log("Formulario enviado 📢");
+      // console.log(formValue);
+    },
+  });
+
   return (
     <View style={styles.content}>
       <Input
@@ -14,6 +51,10 @@ export function LoginForm() {
         rightIcon={
           <Icon type="material-community" name="at" iconStyle={styles.icon} />
         }
+        onChangeText={(text) => {
+          formik.setFieldValue("email", text);
+        }}
+        errorMessage={formik.errors.email}
       />
       <Input
         placeholder="Contraseña"
@@ -27,11 +68,17 @@ export function LoginForm() {
             onPress={showHidenPassword}
           />
         }
+        onChangeText={(text) => {
+          formik.setFieldValue("password", text);
+        }}
+        errorMessage={formik.errors.password}
       />
       <Button
         title="Iniciar Sesión"
         containerStyle={styles.btnContainer}
         buttonStyle={styles.btn}
+        onPress={formik.handleSubmit}
+        loading={formik.isSubmitting}
       />
     </View>
   );

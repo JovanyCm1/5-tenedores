@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {} from "firebase/auth";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { UserGuestScreen } from "./UserGuestScreen";
-import { UserLoggedScreen } from "./UserLoggedScreen";
+import { UserLoggedScreen } from "./UserLoggedScreeen/UserLoggedScreen";
 import { LoginScreen } from "../Account/LoginScreen";
 import { LoadingModal } from "../../components";
 

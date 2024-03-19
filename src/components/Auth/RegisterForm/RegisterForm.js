@@ -10,8 +10,8 @@ import { screen } from "../../../utils";
 import Toast from "react-native-toast-message";
 
 export function RegisterForm() {
-  const [showPassword, setShowPassword] = useState(false);
-  const navigation = useNavigation();
+  const [showPassword, setShowPassword] = useState(false); //**** */ mostrar /cultar icono
+  const navigation = useNavigation(); //******* */  mostrar /cultar icono
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: validationSchema(),
@@ -40,7 +40,8 @@ export function RegisterForm() {
     },
   });
 
-  const showHidenPassword = () => setShowPassword((prevState) => !prevState);
+  const showHidenPassword = () => setShowPassword((prevState) => !prevState); //// mostrar /cultar icono
+
   return (
     <View style={styles.content}>
       <Input
@@ -60,13 +61,13 @@ export function RegisterForm() {
       ></Input>
 
       <Input
-        placeholder="Contrasena"
+        placeholder="Contraseña"
         containerStyle={styles.input}
-        secureTextEntry={showPassword ? false : true}
+        secureTextEntry={showPassword ? false : true} /// mostrar /cultar icono
         rightIcon={
           <Icon
             type="material-community"
-            name={showPassword ? "eye-off-outline" : "eye-outline"}
+            name={showPassword ? "eye-off-outline" : "eye-outline"} /// mostrar /cultar icono
             iconStyle={styles.icon}
             onPress={showHidenPassword}
           ></Icon>
