@@ -18,13 +18,13 @@ export function UserGuestScreen() {
         source={require("../../../../assets/img/user-guest.png")}
         style={styles.image}
       ></Image>
-      <Text style={styles.title}>Consultar tu perfil de 5 tenders</Text>
+      <Text style={styles.title}>Consultar tu perfil de CañIAs</Text>
       <Text style={styles.description}>
-        ¿Cómo describirías tu restaurante favorito? Descubre y explora los
-        mejores restaurantes de manera fácil, vota por tus favoritos y comparte
-        tu experiencia dejando comentarios. Te invitamos a disfrutar de una
-        experiencia gastronómica única y a compartir tus opiniones para ayudar a
-        otros a encontrar sus lugares favoritos para comer.
+        Crear una cuenta en CañIAs te brinda acceso a una plataforma integral
+        diseñada para revolucionar la gestión agrícola en el cultivo de caña de
+        azúcar. Al registrarte, podrás disfrutar de una experiencia única en la
+        que podrás acceder a una amplia gama de funcionalidades para optimizar
+        tus operaciones agrícolas.
       </Text>
 
       <View>

@@ -8,7 +8,7 @@ export function RegisterScreen() {
   return (
     <KeyboardAwareScrollView>
       <Image
-        source={require("../../../../assets/img/5-tenedores-letras-icono-logo.png")}
+        source={require("../../../../assets/img/canias.png")}
         style={styles.image}
       ></Image>
 
