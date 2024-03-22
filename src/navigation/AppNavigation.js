@@ -3,7 +3,6 @@ import { Icon } from "react-native-elements";
 import { AccountStack } from "./AccountStack";
 import { FavoritesStack } from "./FavoritesStack";
 import { RestaurantStack } from "./RestaurantStack";
-import { RankingStack } from "./RankingStack";
 import { SearckStack } from "./SearchStack";
 import { screen } from "../utils";
 
