@@ -20,6 +20,11 @@ export function LoginScreen() {
         style={styles.image}
       />
 
+      <Image
+        source={require("../../../../assets/img/drawlogin.png")}
+        style={styles.image}
+      />
+
       <View style={styles.content}>
         <LoginForm />
 

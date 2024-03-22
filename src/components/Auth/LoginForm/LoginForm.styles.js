@@ -18,6 +18,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   btn: {
-    backgroundColor: "#00a680",
+    backgroundColor: "#18bfb5",
   },
 });
