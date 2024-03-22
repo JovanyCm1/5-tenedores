@@ -4,6 +4,7 @@ import { Avatar } from "react-native-elements";
 import { getAuth } from "firebase/auth"; ////////no se si haya error aqui con acento aqui pero tengo el teclado en ingles y me da hueva aplanarle a "wind +  espacio" dos veces y luego regresarlo a ingles
 import { styles } from "./InfoUser.styles";
 import * as ImagePicker from "expo-image-picker";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 export function InfoUser() {
   const { uid, photoURL, displayName, email } = getAuth().currentUser;
@@ -22,8 +23,18 @@ export function InfoUser() {
     if (!result.cancelled) uploadImage(result.uri); //si no se cancela la seleccion de la imagen, se sube la imagen a firebase
   };
 
-  const uploadImage = (uri) => {
-    console.log(uri);
+  const uploadImage = async (uri) => {
+    const response = await fetch(uri); //se obtiene la imagen
+    const blob = await response.blob(); //se convierte la imagen a blob
+
+    const storage = getStorage(); //se obtiene el storage de firebase
+    const storageRef = ref(storage, `avatar/${uid}`); //se crea una referencia al storage de firebase
+
+    uploadBytes(storageRef, blob).then((snapshot) => {
+      console.log(snapshot.metadata); //muestra en consola que la imagen se subio
+    }); //se sube la imagen a firebase
+
+    //console.log(uri);
   };
 
   return (
