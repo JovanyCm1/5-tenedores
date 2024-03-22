@@ -14,7 +14,7 @@ export function AppNavigation() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarActiveTintColor: "#0049FF",
+        tabBarActiveTintColor: "#09583b",
         tabBarInactiveTintColor: "#79BB99",
         tabBarIcon: ({ color, size }) => screenOptions(route, color, size),
       })}
@@ -47,11 +47,11 @@ function screenOptions(route, color, size) {
   let iconName;
 
   if (route.name === screen.account.tab) {
-    iconName = "home-outline";
+    iconName = "account-outline";
   }
 
   if (route.name === screen.favorites.tab) {
-    iconName = "heart-outline";
+    iconName = "tractor-variant";
   }
 
   if (route.name === screen.ranking.tab) {
@@ -59,11 +59,11 @@ function screenOptions(route, color, size) {
   }
 
   if (route.name === screen.restaurant.tab) {
-    iconName = "compass-outline";
+    iconName = "map-outline";
   }
 
   if (route.name === screen.search.tab) {
-    iconName = "magnify";
+    iconName = "weather-partly-cloudy";
   }
 
   return (
