@@ -20,29 +20,24 @@ export function AppNavigation() {
       })}
     >
       <Tab.Screen
-        name={screen.account.tab}
-        component={AccountStack}
-        options={{ title: "Cuenta" }}
-      />
-      <Tab.Screen
         name={screen.favorites.tab}
         component={FavoritesStack}
         options={{ title: "Favoritos" }}
       />
       <Tab.Screen
-        name={screen.ranking.tab}
-        component={RankingStack}
-        options={{ title: "Ranking" }}
+        name={screen.search.tab}
+        component={SearckStack}
+        options={{ title: "Buscar" }}
       />
       <Tab.Screen
         name={screen.restaurant.tab}
         component={RestaurantStack}
-        options={{ title: "Restaurantes" }}
+        options={{ title: "Mapa" }}
       />
       <Tab.Screen
-        name={screen.search.tab}
-        component={SearckStack}
-        options={{ title: "Buscar" }}
+        name={screen.account.tab}
+        component={AccountStack}
+        options={{ title: "Cuenta" }}
       />
     </Tab.Navigator>
   );
