@@ -22,12 +22,12 @@ export function AppNavigation() {
       <Tab.Screen
         name={screen.favorites.tab}
         component={FavoritesStack}
-        options={{ title: "Favoritos" }}
+        options={{ title: "Cultivos" }}
       />
       <Tab.Screen
         name={screen.search.tab}
         component={SearckStack}
-        options={{ title: "Buscar" }}
+        options={{ title: "Clima" }}
       />
       <Tab.Screen
         name={screen.restaurant.tab}
