@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -36,6 +34,17 @@
     },
     "updates": {
       "url": "https://u.expo.dev/25df5b56-cbab-43c7-b2e2-b4997e52527e"
+    },
+
+    "expo": {
+      "plugins": [
+        [
+          "expo-image-picker",
+          {
+            "permisoFotos": "La aplicacion necesita estos permisos para acceder a la galeria de fotos"
+          }
+        ]
+      ]
     }
   }
 }
