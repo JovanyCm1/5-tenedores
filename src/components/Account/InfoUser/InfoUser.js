@@ -1,14 +1,16 @@
-import React from "react";
+//1 bug no actualiza imagen de perfil
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import { Avatar } from "react-native-elements";
-import { getAuth } from "firebase/auth"; ////////no se si haya error aqui con acento aqui pero tengo el teclado en ingles y me da hueva aplanarle a "wind +  espacio" dos veces y luego regresarlo a ingles
+import { getAuth, updateProfile } from "firebase/auth"; ////////no se si haya error aqui con acento aqui pero tengo el teclado en ingles y me da hueva aplanarle a "wind +  espacio" dos veces y luego regresarlo a ingles
 import { styles } from "./InfoUser.styles";
 import * as ImagePicker from "expo-image-picker";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export function InfoUser(props) {
   const { setLoading, setLoadingText } = props;
   const { uid, photoURL, displayName, email } = getAuth().currentUser;
+  const [avatar, setAvatar] = useState(photoURL);
 
   const changeAvatar = async () => {
     //funcion para cambiar el avatar
@@ -43,8 +45,16 @@ export function InfoUser(props) {
   };
 
   const updatePhotoUrl = async (imagePath) => {
-    console.log(imagePath);
-    setLoading(false); //se quita el loading
+    const storage = getStorage();
+    const imageRef = ref(storage, imagePath);
+
+    const imageUrl = await getDownloadURL(imageRef);
+
+    const auth = getAuth();
+    updateProfile(auth.currentUser, { photoURL: imageUrl });
+
+    setAvatar(imageUrl);
+    setLoading(false);
   };
 
   return (
@@ -55,7 +65,7 @@ export function InfoUser(props) {
         containerStyle={styles.avatar}
         icon={{ type: "material", name: "person" }} // si no tiene foto se muestra el icono
         // source={{ uri: "C:\\Users\\jaime\\Downloads\\inge.png" }} // si tiene foto en firebase se muestra este
-        source={{ uri: photoURL }} // si tiene foto en firebase se muestra este
+        source={{ uri: avatar }} // si tiene foto en firebase se muestra este
       >
         <Avatar.Accessory size={24} onPress={changeAvatar} />
       </Avatar>
