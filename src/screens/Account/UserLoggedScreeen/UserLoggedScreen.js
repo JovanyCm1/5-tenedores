@@ -9,6 +9,9 @@ import { getAuth, signOut } from "firebase/auth";
 export function UserLoggedScreen() {
   const [loading, setLoading] = useState(false);
   const [loadingText, setLoadingText] = useState("");
+  const [reload, setReload] = useState(false);
+
+  const onReload = () => setReload((prevState) => !prevState);
 
   const logout = async () => {
     console.log("Cerrar sesión");
@@ -21,7 +24,7 @@ export function UserLoggedScreen() {
       <Text> UserLoggedScreen </Text>
       <InfoUser setLoading={setLoading} setLoadingText={setLoadingText} />
 
-      <AccountOptions />
+      <AccountOptions onReload={onReload} />
 
       <Button
         title="Cerrar sesión"
