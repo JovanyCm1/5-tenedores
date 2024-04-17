@@ -28,7 +28,7 @@ export function InfoForm(props) {
           rightIcon={{
             type: "material-community",
             name: "google-maps",
-            color: "#c2c2c2",
+            color: getColorIconMap(formik),
             onPress: onOpenCloseMap,
           }}
           onChangeText={(text) => formik.setFieldValue("address", text)}
@@ -56,3 +56,13 @@ export function InfoForm(props) {
     </>
   );
 }
+const getColorIconMap = (formik) => {
+  if (formik.errors.location) {
+    return "#ff0000";
+  }
+  if (formik.values.location) {
+    return "#00a680";
+  }
+
+  return "#c2c2c2";
+};
