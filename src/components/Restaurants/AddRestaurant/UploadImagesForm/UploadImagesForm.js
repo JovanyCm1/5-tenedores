@@ -1,13 +1,16 @@
-import react from "react";
+import React, { useState } from "react";
 import { View, Alert } from "react-native";
 import { Icon, Avatar, Text } from "react-native-elements";
 import * as ImagePicker from "expo-image-picker";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuid } from "uuid";
+import { LoadingModal } from "../../../Shared";
 import { styles } from "./UploadImagesForm.styles";
+import { Formik } from "formik";
 
 export function UploadImagesForm(props) {
   const { formik } = props;
+  const [isLoading, setIsLoading] = useState(false);
 
   const openGallery = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -18,6 +21,7 @@ export function UploadImagesForm(props) {
     });
 
     if (!result.cancelled) {
+      setIsLoading(true);
       uploadImage(result.uri);
     }
   };
@@ -31,7 +35,18 @@ export function UploadImagesForm(props) {
 
     uploadBytes(storageRef, blob).then((snapshot) => {
       console.log(snapshot);
+      updatePhotosRestaurant(snapshot.metadata.fullPath);
     });
+  };
+
+  const updatePhotosRestaurant = async (imagePath) => {
+    const storage = getStorage();
+    const imageRef = ref(storage, imagePath);
+
+    const imageUrl = await getDownloadURL(imageRef);
+    console.log(imageUrl);
+    Formik.setFieldValue("images", [...formik.values.images, imageUrl]);
+    setIsLoading(false);
   };
 
   return (
@@ -44,6 +59,8 @@ export function UploadImagesForm(props) {
           containerStyle={styles.containerIcon}
           onPress={openGallery}
         ></Icon>
+        <Text style={styles.error}>{formik.errors.images}</Text>
+        <LoadingModal show={isLoading} text="Subiendo Imagen"></LoadingModal>
       </View>
     </>
   );
