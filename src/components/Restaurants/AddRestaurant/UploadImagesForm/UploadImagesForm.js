@@ -5,6 +5,7 @@ import * as ImagePicker from "expo-image-picker";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuid } from "uuid";
 import { LoadingModal } from "../../../Shared";
+import { map } from "lodash";
 import { styles } from "./UploadImagesForm.styles";
 import { Formik } from "formik";
 
@@ -58,7 +59,14 @@ export function UploadImagesForm(props) {
           color="#a7a7a7"
           containerStyle={styles.containerIcon}
           onPress={openGallery}
-        ></Icon>
+        />
+        {map(formik.values.images, (image) => (
+          <Avatar
+            key={image}
+            source={{ uri: image }}
+            containerStyle={styles.imageStyle}
+          />
+        ))}
         <Text style={styles.error}>{formik.errors.images}</Text>
         <LoadingModal show={isLoading} text="Subiendo Imagen"></LoadingModal>
       </View>
