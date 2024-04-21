@@ -5,7 +5,7 @@ import * as ImagePicker from "expo-image-picker";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { v4 as uuid } from "uuid";
 import { LoadingModal } from "../../../Shared";
-import { map } from "lodash";
+import { map, filter } from "lodash";
 import { styles } from "./UploadImagesForm.styles";
 import { Formik } from "formik";
 
@@ -50,6 +50,30 @@ export function UploadImagesForm(props) {
     setIsLoading(false);
   };
 
+  const removeImage = (img) => {
+    Alert.alert(
+      "Eliminar Imagen",
+      "¿Estás seguro de que quieres eliminar la imagen?",
+      [
+        {
+          text: "Cancelar",
+          style: "cancel",
+        },
+        {
+          text: "Eliminar",
+          onPress: () => {
+            const result = filter(
+              formik.values.images,
+              (image) => image !== img
+            );
+            formik.setFieldValue("images", result);
+          },
+        },
+      ],
+      { cancelable: true }
+    );
+  };
+
   return (
     <>
       <ScrollView
@@ -69,6 +93,7 @@ export function UploadImagesForm(props) {
             key={image}
             source={{ uri: image }}
             containerStyle={styles.imageStyle}
+            onPress={() => removeImage(image)}
           />
         ))}
         <Text style={styles.error}>{formik.errors.images}</Text>
