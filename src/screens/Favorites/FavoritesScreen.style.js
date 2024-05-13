@@ -21,6 +21,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     imageDetectar: {
+        margin: 10,
         width: 200,
         height: 200
     },
@@ -67,11 +68,34 @@ export const styles = StyleSheet.create({
     },
     contentOpciones: {
         alignItems: 'center',
-        margin: 10,
+        margin: 15,
         borderWidth: 0.5,
         borderColor: '#000',
         borderRadius: 15,
         flexDirection: 'row',
         flex: 1
     },
+    contentCultivos: {
+        alignItems: 'center',
+        margin: 15,
+        borderWidth: 0.5,
+        borderColor: '#000',
+        borderRadius: 15,
+        flexDirection: 'row',
+        flex: 1
+    },
+    imageCultivos: {
+        flex: 1,
+        with: 100,
+        height: 120,
+        borderRadius: 15,
+        margin: 10,
+    },
+    textCultivos: {
+        flex: 2,
+        color: 'green',
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginTop: 20,
+    }
 });
