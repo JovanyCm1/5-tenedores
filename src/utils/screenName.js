@@ -8,6 +8,7 @@ const accountStack = {
 const favoritesStack = {
   tab: "CultivosTab",
   favorites: "Cultivos",
+  diagnosticar: "Diagnosticar",
 };
 
 const rankingStack = {

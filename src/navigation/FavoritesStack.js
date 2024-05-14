@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { FavoritesScreen } from "../screens/Cultivos/FavoritesScreen";
+import { DiagnosticarScreen } from "../screens/Cultivos/DiagnosticarScreen";
 import { View, Image } from "react-native";
 import { screen } from "../utils";
 
@@ -19,6 +20,11 @@ export function FavoritesStack() {
                         </View>
                     ),
                 }}
+            />
+            <Stack.Screen
+                name={screen.favorites.diagnosticar}
+                component={DiagnosticarScreen}
+                options={{ title: "Diagnosticar" }}
             />
         </Stack.Navigator>
     )

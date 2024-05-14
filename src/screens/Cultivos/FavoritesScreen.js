@@ -1,6 +1,8 @@
 import { View, Text, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { SearchBar, Button, Icon } from 'react-native-elements'
+import { useNavigation } from "@react-navigation/native"
+import { screen } from '../../utils'
 import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from './FavoritesScreen.style'
 
@@ -10,6 +12,12 @@ export function FavoritesScreen() {
     const updateSearch = (search) => {
         setSearch(search);
     };
+
+    const navigation = useNavigation();
+    const goToDiagnosticar = () => {
+        console.log("📢Ir a diagnosticar");
+        navigation.navigate(screen.favorites.diagnosticar);
+    }
 
     const data = [
         {
@@ -83,6 +91,7 @@ export function FavoritesScreen() {
                     }
                     title=" Diagnosticar"
                     buttonStyle={styles.button}
+                    onPress={goToDiagnosticar}
                 />
             </View>
             <Text style={styles.text}>Explorar</Text>
