@@ -6,8 +6,8 @@ const accountStack = {
 };
 
 const favoritesStack = {
-  tab: "FavoritesTab",
-  favorites: "Favorites",
+  tab: "CultivosTab",
+  favorites: "Cultivos",
 };
 
 const rankingStack = {

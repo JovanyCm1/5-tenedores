@@ -1,6 +1,7 @@
 import { View, Text, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { SearchBar, Button, Icon } from 'react-native-elements'
+import { LinearGradient } from 'expo-linear-gradient'
 import { styles } from './FavoritesScreen.style'
 
 export function FavoritesScreen() {
@@ -43,7 +44,17 @@ export function FavoritesScreen() {
     ];
 
     return (
-        <ScrollView>
+        <ScrollView >
+            <LinearGradient
+                colors={['#18bfb5', 'transparent']}
+                style={{
+                    position: 'absolute',
+                    left: 0,
+                    right: 0,
+                    top: 0,
+                    height: '50%',
+                }}
+            />
             <SearchBar
                 placeholder="Busca tu cultivo aqui..."
                 onChangeText={updateSearch}

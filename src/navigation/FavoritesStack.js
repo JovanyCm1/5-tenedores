@@ -1,5 +1,6 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { FavoritesScreen } from "../screens/Favorites/FavoritesScreen";
+import { FavoritesScreen } from "../screens/Cultivos/FavoritesScreen";
+import { View, Image } from "react-native";
 import { screen } from "../utils";
 
 const Stack = createNativeStackNavigator();
@@ -10,7 +11,14 @@ export function FavoritesStack() {
             <Stack.Screen
                 name={screen.favorites.favorites}
                 component={FavoritesScreen}
-                options={{ title: "Cultivos" }}
+                options={{
+                    headerTitle: props => (
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Image source={require('../../assets/img/canias-logo.png')} style={{ height: 40, width: 40 }} />
+                            <Image source={require('../../assets/img/5-tenedores-letras-icono-logo.png')} style={{ height: 40, width: 100, marginLeft: 10 }} />
+                        </View>
+                    ),
+                }}
             />
         </Stack.Navigator>
     )

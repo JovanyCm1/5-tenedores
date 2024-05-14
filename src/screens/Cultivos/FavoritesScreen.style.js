@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 20,
         marginRight: 20,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: '#000',
         borderRadius: 15
     },
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 20,
         marginRight: 20,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: '#000',
         borderRadius: 15,
         flexDirection: 'row',
@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     contentOpciones: {
         alignItems: 'center',
         margin: 15,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: '#000',
         borderRadius: 15,
         flexDirection: 'row',
@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
     contentCultivos: {
         alignItems: 'center',
         margin: 15,
-        borderWidth: 0.5,
+        borderWidth: 1,
         borderColor: '#000',
         borderRadius: 15,
         flexDirection: 'row',
