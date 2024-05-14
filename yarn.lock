@@ -3002,9 +3002,9 @@ convert-source-map@^2.0.0:
   integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
 
 core-js-compat@^3.36.1:
-  version "3.37.0"
-  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.37.0.tgz#d9570e544163779bb4dff1031c7972f44918dc73"
-  integrity sha512-vYq4L+T8aS5UuFg4UwDhc7YNRWVeVZwltad9C/jV3R2LgVOpS9BDr7l/WL6BN0dbV3k1XejPTHqqEzJgsa0frA==
+  version "3.37.1"
+  resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.37.1.tgz#c844310c7852f4bdf49b8d339730b97e17ff09ee"
+  integrity sha512-9TNiImhKvQqSUkOvk/mMRZzOANTiEVC7WaBNhHcKM7x+/5E1l5NvsysR19zuDQScE8k+kfQXWRN3AtS/eOSHpg==
   dependencies:
     browserslist "^4.23.0"
 
@@ -3491,6 +3491,13 @@ expo-asset@~10.0.6:
     expo-constants "~16.0.0"
     invariant "^2.2.4"
     md5-file "^3.2.3"
+
+expo-camera@~15.0.8:
+  version "15.0.8"
+  resolved "https://registry.yarnpkg.com/expo-camera/-/expo-camera-15.0.8.tgz#ec6b02aee0ae194efa98ee35f09ebc5f7a4479c6"
+  integrity sha512-pWiSBQRKjnenEOwMqbkfY41Jm0Xkt63ODPqQydKOgmFELrsuQjGbRla6QaZ8Eo6hVeuClfyVnUu3sKfnN+CmNA==
+  dependencies:
+    invariant "^2.2.4"
 
 expo-constants@~16.0.0:
   version "16.0.1"

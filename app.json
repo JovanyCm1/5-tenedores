@@ -19,7 +19,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": ["CAMERA", "RECORD_AUDIO"]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -35,16 +36,22 @@
     "updates": {
       "url": "https://u.expo.dev/25df5b56-cbab-43c7-b2e2-b4997e52527e"
     },
-
-    "expo": {
       "plugins": [
         [
           "expo-image-picker",
           {
             "permisoFotos": "La aplicacion necesita estos permisos para acceder a la galeria de fotos"
           }
+        ],
+        [
+          "expo-camera",
+          {
+            "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+            "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+            "recordAudioAndroid": true
+          }
         ]
       ]
-    }
+    
   }
 }
