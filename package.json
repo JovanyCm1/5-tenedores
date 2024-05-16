@@ -20,6 +20,7 @@
     "expo-image-picker": "~15.0.4",
     "expo-linear-gradient": "~13.0.2",
     "expo-location": "~17.0.1",
+    "expo-media-library": "~16.0.3",
     "expo-status-bar": "~1.12.1",
     "expo-updates": "~0.25.11",
     "firebase": "^9.6.7",

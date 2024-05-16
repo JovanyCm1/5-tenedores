@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { Text, View } from 'react-native';
 import { CameraView, useCameraPermissions } from 'expo-camera';
-//import { styles } from './DiagnosticarScreen.styles';
+import { Button } from 'react-native-elements';
+import { styles } from './DiagnosticarScreen.styles';
+import * as MediaLibrary from 'expo-media-library';
 
 export function DiagnosticarScreen() {
     const [facing, setFacing] = useState('back');
     const [permission, requestPermission] = useCameraPermissions();
+    const cameraRef = useRef(null);
 
     if (!permission) {
         // Camera permissions are still loading.
@@ -25,42 +28,24 @@ export function DiagnosticarScreen() {
     function toggleCameraFacing() {
         setFacing(current => (current === 'back' ? 'front' : 'back'));
     }
+
+    const takePictureAndSave = async () => {
+        if (cameraRef.current) {
+            const options = { quality: 0.5, base64: true };
+            const photo = await cameraRef.current.takePictureAsync(options);
+            const asset = await MediaLibrary.createAssetAsync(photo.uri);
+            console.log('Saved photo to:', asset.uri);
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <CameraView style={styles.camera} facing={facing}>
+            <CameraView style={styles.camera} facing={facing} ref={cameraRef}>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-                        <Text style={styles.text}>Flip Camera</Text>
-                    </TouchableOpacity>
+                    <Button buttonStyle={styles.button} title="Take Picture" onPress={takePictureAndSave} />
+                    <Button buttonStyle={styles.button} title="Flip Camera" onPress={toggleCameraFacing} />
                 </View>
             </CameraView>
         </View>
     );
 }
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-    },
-    camera: {
-        flex: 1,
-    },
-    buttonContainer: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: 'transparent',
-        margin: 64,
-    },
-    button: {
-        flex: 1,
-        alignSelf: 'flex-end',
-        alignItems: 'center',
-    },
-    text: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: 'white',
-    },
-});
