@@ -36,30 +36,45 @@
     "updates": {
       "url": "https://u.expo.dev/25df5b56-cbab-43c7-b2e2-b4997e52527e"
     },
-      "plugins": [
-        [
-          "expo-image-picker",
-          {
-            "permisoFotos": "La aplicacion necesita estos permisos para acceder a la galeria de fotos"
-          }
-        ],
-        [
-          "expo-camera",
-          {
-            "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
-            "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
-            "recordAudioAndroid": true
-          }
-        ],
-        [
-          "expo-media-library",
-          {
-            "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
-            "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
-            "isAccessMediaLocationEnabled": true
-          }
-        ]
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "permisoFotos": "La aplicacion necesita estos permisos para acceder a la galeria de fotos"
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera",
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone",
+          "recordAudioAndroid": true
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow $(PRODUCT_NAME) to access your photos.",
+          "savePhotosPermission": "Allow $(PRODUCT_NAME) to save photos.",
+          "isAccessMediaLocationEnabled": true
+        }
       ]
-    
+    ],
+    "assets": [
+      {
+        "assetId": "C166F9F5-B5FE-4501-9531",
+        "base64": null,
+        "duration": null,
+        "exif": null,
+        "fileName": "IMG.HEIC",
+        "fileSize": 6018901,
+        "height": 3025,
+        "type": "image",
+        "uri": "imageurl...",
+        "width": 3024
+      }
+    ],
+    "canceled": false,
+    "cancelled": false
   }
 }
