@@ -3,7 +3,7 @@ import { Icon } from "react-native-elements";
 import { AccountStack } from "./AccountStack";
 import { FavoritesStack } from "./FavoritesStack";
 import { RestaurantStack } from "./RestaurantStack";
-import { SearckStack } from "./SearchStack";
+import { DispositivoStack } from "./DispositivoStack";
 import { screen } from "../utils";
 
 const Tab = createBottomTabNavigator();
@@ -30,9 +30,9 @@ export function AppNavigation() {
         options={{ title: "Cultivos" }}
       />
       <Tab.Screen
-        name={screen.search.tab}
-        component={SearckStack}
-        options={{ title: "Clima" }}
+        name={screen.dispositivos.tab}
+        component={DispositivoStack}
+        options={{ title: "Dispositivos" }}
       />
       <Tab.Screen
         name={screen.restaurant.tab}
@@ -67,7 +67,7 @@ function screenOptions(route, color, size) {
     iconName = "map-outline";
   }
 
-  if (route.name === screen.search.tab) {
+  if (route.name === screen.dispositivos.tab) {
     iconName = "weather-partly-cloudy";
   }
 

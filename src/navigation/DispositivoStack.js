@@ -1,16 +1,16 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { SearchScreen } from "../screens/SearchScreen";
+import { DispositivosScreen } from "../screens/Dispositivos/DispositivosScreen";
 import { View, Image } from "react-native";
 import { screen } from "../utils";
 
 const Stack = createNativeStackNavigator();
 
-export function SearckStack() {
+export function DispositivoStack() {
     return (
         <Stack.Navigator>
             <Stack.Screen
-                name={screen.search.search}
-                component={SearchScreen}
+                name={screen.dispositivos.dispositivos}
+                component={DispositivosScreen}
                 options={{
                     headerTitle: props => (
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>

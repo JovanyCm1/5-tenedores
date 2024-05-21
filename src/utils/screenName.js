@@ -22,15 +22,15 @@ const restaurantStack = {
   addRestaurant: "AddRestaurant",
 };
 
-const searchStack = {
-  tab: "SearchTab",
-  search: "Search",
+const DispositivosStack = {
+  tab: "DispositivoTab",
+  dispositivos: "Dispositivo",
 };
 
 export const screen = {
   restaurant: restaurantStack,
   favorites: favoritesStack,
-  search: searchStack,
+  dispositivos: DispositivosStack,
   ranking: rankingStack,
   account: accountStack,
 };
