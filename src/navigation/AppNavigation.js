@@ -12,10 +12,16 @@ export function AppNavigation() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
+        tabBarVisible: route.name !== screen.favorites.diagnosticar,
         headerShown: false,
         tabBarActiveTintColor: "#09583b",
         tabBarInactiveTintColor: "#79BB99",
         tabBarIcon: ({ color, size }) => screenOptions(route, color, size),
+        tabBarStyle: {
+          position: "absolute",
+          backgroundColor: "#eafbfc",
+          borderRadius: 30,
+        },
       })}
     >
       <Tab.Screen

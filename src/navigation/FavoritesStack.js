@@ -24,7 +24,10 @@ export function FavoritesStack() {
             <Stack.Screen
                 name={screen.favorites.diagnosticar}
                 component={DiagnosticarScreen}
-                options={{ title: "Diagnosticar" }}
+                options={{
+                    title: "Diagnosticar",
+                    tabBarVisible: false,
+                }}
             />
         </Stack.Navigator>
     )
