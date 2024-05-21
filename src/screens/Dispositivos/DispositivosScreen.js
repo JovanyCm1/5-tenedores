@@ -26,11 +26,13 @@ export function DispositivosScreen() {
         <View>
             {weatherData ? (
                 <View>
+                    <Text>Ciudad: {weatherData.name}</Text>
                     <Text>Location: {location.latitude}, {location.longitude}</Text>
                     <Text>Temperatura: {weatherData.main.temp}°C</Text>
                     <Text>Humedad: {weatherData.main.humidity}%</Text>
                     <Text>Presión: {weatherData.main.pressure} hPa</Text>
                     <Text>Velocidad del viento: {weatherData.wind.speed} m/s</Text>
+                    <Text>Descripción: {weatherData.weather[0].description}</Text>
                 </View>
             ) : (
                 <Text>Cargando...</Text>
