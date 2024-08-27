@@ -20,7 +20,7 @@ export function AppNavigation() {
         tabBarStyle: {
           position: "absolute",
           backgroundColor: "#eafbfc",
-          borderRadius: 30,
+          //borderRadius: 30,
         },
       })}
     >
