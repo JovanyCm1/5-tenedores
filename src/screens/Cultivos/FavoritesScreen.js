@@ -46,34 +46,77 @@ export function FavoritesScreen() {
       ubicacion: "Gómez Farías, Tamaulipas",
       variedad: "MEX 80-150",
       fecha: "24 de Septiembre de 2022",
-      image: require("../../../assets/img/Plagas.jpg"),
+      image: require("../../../assets/img/cultivo-de-cana-de-azucar-scaled.jpeg"),
     },
-    // ... puedes agregar más objetos aquí ...
   ];
 
   return (
     <ScrollView style={{ marginBottom: 50 }}>
       <LinearGradient
-        colors={["#18bfb5", "transparent"]}
+        colors={["#3DE4AD", "transparent"]}
         style={{
           position: "absolute",
           left: 0,
           right: 0,
           top: 0,
-          height: "50%",
+          height: "10%",
         }}
       />
-      <SearchBar
-        placeholder="Busca tu cultivo aqui..."
-        onChangeText={updateSearch}
-        value={search}
-        containerStyle={styles.searchBar}
-        inputContainerStyle={{ backgroundColor: "#EDEDED", borderRadius: 15 }}
-        inputStyle={{ color: "#434343" }}
-        placeholderTextColor={"#434343"}
-        searchIcon={{ color: "#434343" }}
-        clearIcon={{ color: "#434343" }}
-      />
+      <View style={{ padding: 20, alignItems: "center" }}>
+        <Text style={{ fontSize: 18 }}>Bienvenido</Text>
+        <Text style={{ fontSize: 25, fontWeight: "400", marginTop: 5 }}>
+          Ing. Rivera
+        </Text>
+        <View
+          style={{ flexDirection: "row", alignItems: "center", marginTop: 5 }}
+        >
+          <Icon
+            type="material-community"
+            name="map-marker"
+            size={23}
+            color="#000"
+            iconStyle={{ opacity: 0.5 }} // Ajustar opacidad del icono
+          />
+
+          <Text style={{ fontSize: 25, marginLeft: 5, opacity: 0.5 }}>
+            Cd. Mante
+          </Text>
+        </View>
+      </View>
+      <View style={{ position: "relative" }}>
+        <SearchBar
+          placeholder="Busca tu cultivo aqui..."
+          onChangeText={updateSearch}
+          value={search}
+          containerStyle={[styles.searchBar, { marginTop: 20 }]} // Añadir margen superior
+          inputContainerStyle={{
+            backgroundColor: "#EDEDED",
+            borderRadius: 15,
+            borderWidth: 1, // Añadir borde
+            borderColor: "rgba(112, 112, 112, 0.5)", // Color del borde con transparencia
+          }}
+          inputStyle={{ color: "#434343", opacity: 0.7 }} // Ajustar opacidad del texto
+          placeholderTextColor={"#434343"}
+          searchIcon={{ color: "#434343" }}
+          clearIcon={{ color: "#434343" }}
+        />
+        {search === "" && (
+          <Image
+            source={require("../../../assets/img/logo-para-buscador.png")} // Reemplaza con la ruta de tu imagen
+            style={{
+              position: "absolute",
+              right: 10,
+              top: "50%",
+              transform: [{ translateY: 0 }],
+              transform: [{ translateX: -12 }], // Ajustar posición vertical
+              width: 24,
+              height: 24,
+              opacity: 0.5, // Ajustar opacidad
+            }}
+          />
+        )}
+      </View>
+
       <Text style={styles.text}>Detectar</Text>
       <View style={styles.contentDiagnostico}>
         <Image
@@ -102,7 +145,10 @@ export function FavoritesScreen() {
             source={require("../../../assets/img/cultivo-de-cana-de-azucar-scaled.jpeg")}
           />
           <View style={styles.overlay}>
-            <Text style={styles.overlayText}>Tipos de cañas</Text>
+            <Text style={styles.overlayText}>
+              <Text style={{ color: "#FFFFFF" }}>Tipos de </Text>
+              <Text style={{ color: "#FFFF00" }}>cañas</Text>
+            </Text>
           </View>
         </View>
         <View style={styles.contentOpciones}>
