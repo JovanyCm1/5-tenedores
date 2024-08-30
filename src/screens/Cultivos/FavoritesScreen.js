@@ -1,9 +1,11 @@
 import { View, Text, Image, ScrollView } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SearchBar, Button, Icon } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { screen } from "../../utils";
 import { LinearGradient } from "expo-linear-gradient";
+import * as Location from 'expo-location';
+import axios from 'axios';
 import { styles } from "./FavoritesScreen.style";
 
 export function FavoritesScreen() {
@@ -50,6 +52,24 @@ export function FavoritesScreen() {
     },
   ];
 
+  const [weatherData, setWeatherData] = useState(null);
+  const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
+  console.log(location.latitude, location.longitude);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        console.error('Permission to access location was denied');
+        return;
+      }
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation({ latitude: location.coords.latitude, longitude: location.coords.longitude });
+      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=de70cd52f01093abc88283a19af4fc3f&units=metric`);
+      setWeatherData(response.data);
+    })();
+  }, []);
+
   return (
     <ScrollView style={{ marginBottom: 50 }}>
       <LinearGradient
@@ -78,9 +98,15 @@ export function FavoritesScreen() {
             iconStyle={{ opacity: 0.5 }} // Ajustar opacidad del icono
           />
 
-          <Text style={{ fontSize: 25, marginLeft: 5, opacity: 0.5 }}>
-            Cd. Mante
-          </Text>
+          {weatherData ? (
+            <Text style={{ fontSize: 25, marginLeft: 5, opacity: 0.5 }}>
+              {weatherData.name}
+            </Text>
+          ) : (
+            <Text style={{ fontSize: 25, marginLeft: 5, opacity: 0.5 }}>
+              Cargando...
+            </Text>
+          )}
         </View>
       </View>
       <View style={{ position: "relative" }}>
