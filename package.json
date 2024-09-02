@@ -17,7 +17,7 @@
     "@rneui/base": "^4.0.0-rc.8",
     "@rneui/themed": "^4.0.0-rc.8",
     "axios": "^1.7.1",
-    "expo": "~51.0.31",
+    "expo": "^51.0.31",
     "expo-camera": "~15.0.15",
     "expo-image-picker": "~15.0.7",
     "expo-linear-gradient": "~13.0.2",
