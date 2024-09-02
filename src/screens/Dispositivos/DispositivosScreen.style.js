@@ -42,6 +42,12 @@ export const styles = StyleSheet.create({
   devicesContainer: {
     paddingHorizontal: 20,
   },
+  deviceTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#18BFB5",
+    marginBottom: 5,
+  },
   deviceCard: {
     backgroundColor: "#FFF",
     borderRadius: 10,
