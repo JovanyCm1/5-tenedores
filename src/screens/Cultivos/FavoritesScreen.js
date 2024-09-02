@@ -86,7 +86,7 @@ export function FavoritesScreen() {
 					left: 0,
 					right: 0,
 					top: 0,
-					height: "10%",
+					height: 150
 				}}
 			/>
 			<View style={{ padding: 20, alignItems: "center" }}>
