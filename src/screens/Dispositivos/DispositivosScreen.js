@@ -16,7 +16,13 @@ const DeviceCard = ({ image, title, location, variety, date }) => (
     <Image source={image} style={styles.deviceImage} />
     <View style={styles.deviceInfo}>
       <Text style={styles.deviceTitle}>{title}</Text>
-      <Text style={styles.deviceLocation}>Ubicación: {location}</Text>
+      <View style={styles.deviceLocationContainer}>
+        <Image
+          source={require("../../../assets/img/ubicacion.png")}
+          style={styles.locationIcon}
+        />
+        <Text style={styles.deviceLocation}>Ubicación: {location}</Text>
+      </View>
       <Text style={styles.deviceVariety}>Variedad de la caña: {variety}</Text>
       <Text style={styles.deviceDate}>Última medición: {date}</Text>
     </View>
@@ -68,18 +74,32 @@ export function DispositivosScreen() {
       date: "16 de febrero del 2024",
     },
     {
-      image: require("../../../assets/img/ejemplo-dispositivo.png"),
+      image: require("../../../assets/img/dispositivo2.png"),
       title: "Dispositivo 2",
       location: "Ciudad Victoria, Tamps.",
       variety: "CP 72-2086",
       date: "15 de febrero del 2024",
     },
     {
-      image: require("../../../assets/img/ejemplo-dispositivo.png"),
+      image: require("../../../assets/img/dispositivo3.png"),
       title: "Dispositivo 3",
       location: "Tampico, Tamps.",
       variety: "RB 72-454",
       date: "14 de febrero del 2024",
+    },
+    {
+      image: require("../../../assets/img/ejemplo-dispositivo.png"),
+      title: "Dispositivo 4",
+      location: "Altamira, Tamps.",
+      variety: "LCP 85-384",
+      date: "13 de febrero del 2024",
+    },
+    {
+      image: require("../../../assets/img/dispositivo2.png"),
+      title: "Dispositivo 5",
+      location: "Nuevo Laredo, Tamps.",
+      variety: "SP 79-2233",
+      date: "12 de febrero del 2024",
     },
 
     // Agrega más dispositivos según sea necesario
@@ -95,17 +115,37 @@ export function DispositivosScreen() {
       >
         {weatherData && (
           <View style={styles.weatherCard}>
-            <Text style={styles.title}>Caña de campo</Text>
-            <Text style={styles.subtitle}>Cd. Mante</Text>
             <Image
               source={require("../../../assets/img/ejemplo-caña.png")}
               style={styles.image}
             />
-            <View style={styles.weatherInfo}>
-              <Text style={styles.weatherText}>
-                🌡️ {weatherData.main.temp}°C
-              </Text>
-              <Text style={styles.weatherText}>☀️ 60% Luz</Text>
+            <View style={styles.weatherTextContainer}>
+              <Text style={styles.title}>Caña de campo</Text>
+              <Text style={styles.subtitle}>Cd. Mante</Text>
+              <View style={styles.weatherInfo}>
+                <View style={styles.weatherItem}>
+                  <Text style={styles.weatherLabel}>Temperatura</Text>
+                  <View style={styles.weatherValueContainer}>
+                    <Image
+                      source={require("../../../assets/img/temperatura.png")}
+                      style={styles.weatherIcon}
+                    />
+                    <Text style={styles.weatherText}>
+                      {weatherData.main.temp}°C
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.weatherItem}>
+                  <Text style={styles.weatherLabel}>Luz</Text>
+                  <View style={styles.weatherValueContainer}>
+                    <Image
+                      source={require("../../../assets/img/luz.png")}
+                      style={styles.weatherIcon}
+                    />
+                    <Text style={styles.weatherText}>60% Luz</Text>
+                  </View>
+                </View>
+              </View>
             </View>
           </View>
         )}

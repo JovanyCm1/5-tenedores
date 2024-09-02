@@ -15,7 +15,12 @@ export const styles = StyleSheet.create({
     backgroundColor: "#F0F4F8",
     borderRadius: 10,
     padding: 20,
-    alignItems: "center",
+    flexDirection: "row", // Cambiado a fila
+    alignItems: "center", // Alinear elementos verticalmente al centro
+  },
+  weatherTextContainer: {
+    flex: 1, // Ocupa el espacio disponible
+    marginLeft: 10, // Espacio entre la imagen y el texto
   },
   title: {
     fontSize: 24,
@@ -31,13 +36,23 @@ export const styles = StyleSheet.create({
     marginVertical: 10,
   },
   weatherInfo: {
-    flexDirection: "row",
+    flexDirection: "column", // Cambiado a columna
     justifyContent: "space-between",
     width: "100%",
   },
   weatherText: {
     fontSize: 18,
     color: "#333",
+  },
+  weatherLabel: {
+    fontWeight: "bold",
+    fontSize: 13,
+    color: "black",
+    marginBottom: 5,
+  },
+  weatherValueContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
   devicesContainer: {
     paddingHorizontal: 20,
@@ -47,6 +62,16 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#18BFB5",
     marginBottom: 5,
+  },
+  deviceLocationContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  locationIcon: {
+    width: 16,
+    height: 16,
+    marginRight: 5,
+    tintColor: "#000", // Cambia esto al color que desees
   },
   deviceCard: {
     backgroundColor: "#FFF",
@@ -88,5 +113,15 @@ export const styles = StyleSheet.create({
   deviceDate: {
     fontSize: 12,
     color: "#AAA",
+  },
+  weatherItem: {
+    flexDirection: "column",
+    alignItems: "flex-start",
+    marginBottom: 10,
+  },
+  weatherIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 5,
   },
 });
