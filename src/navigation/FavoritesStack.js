@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { FavoritesScreen } from "../screens/Cultivos/FavoritesScreen";
 import { DiagnosticarScreen } from "../screens/Cultivos/DiagnosticarScreen";
+import { VariedadesScreen } from "../screens/Cultivos/VariedadesScreen"
 import { View, Image } from "react-native";
 import { screen } from "../utils";
 
@@ -26,6 +27,14 @@ export function FavoritesStack() {
                 component={DiagnosticarScreen}
                 options={{
                     title: "Diagnosticar",
+                    tabBarVisible: false,
+                }}
+            />
+            <Stack.Screen
+                name={screen.favorites.variedades}
+                component={VariedadesScreen}
+                options={{
+                    title: "Variedades",
                     tabBarVisible: false,
                 }}
             />
