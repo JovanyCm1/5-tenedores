@@ -105,7 +105,9 @@ export function DispositivosScreen() {
               <Text style={styles.weatherText}>
                 🌡️ {weatherData.main.temp}°C
               </Text>
-              <Text style={styles.weatherText}>☀️ 60% Luz</Text>
+              <Text style={styles.weatherText}>
+                💧 {weatherData.main.humidity}% Humedad
+              </Text>
             </View>
           </View>
         )}
